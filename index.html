@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang='en'>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Quiz App</title>
+    <link href="style.css" rel="stylesheet" type="text/css" />
+  </head>
+  <body>
+    <header>
+      <h1> YOUR QUIZ APP HEADER </h1>
+      <div class='display-questions-scores'> 
+        <span> Question: </span>
+        <span> Score: </span>
+      </div>
+    </header>
+
+    <main>
+      <form>
+        <fieldset class='start-screen'>
+          <div>
+            <legend>YOUR QUIZ TITTLE:</legend>
+            <p> This quiz is to analyze your basic knowledge of ${text} </p>
+          </div>
+          <div class='js-submit'>
+            <button type='select' class='start'>START</button>
+          </div>
+        </fieldset>
+
+        <fieldset class='questions-screen'>
+          <div class='js-questions'>
+            <legend>Question</legend>
+            <img src='' class='question-picture' alt='Question-Picture'>
+          </div>
+          <div class='js-options'>
+            <input type='radio' id='ans-0' value='0'>
+            <label for='ans-0'>Option 1</label>
+            <br>
+            <input type='radio' id='ans-1' value='1'>
+            <label for='ans-1'>Option 2</label>
+            <br>
+            <input type='radio' id='ans-2' value='2'>
+            <label for='ans-2'>Option 3</label>
+            <br>
+            <input type='radio' id='ans-3' value='3'>
+            <label for='ans-3'>Option 4</label>
+            <br>  
+          </div>
+          <div class='js-submit'>
+            <button type='submit'class='submit'> SUBMIT </button>
+          </div>
+        </fieldset>
+
+        <fieldset class='final-screen'>
+          <div>
+            <legend>THANK YOU</legend>
+            <p> You have completed your quiz. Your score is ${this.num}. What would you like to do next?</p>
+          </div>
+          <div class='js-submit'>
+            <button type='select' class='exit'>EXIT</button>
+            <button type='select' class='start-over'>START OVER</button>
+          </div>
+        </fieldset>
+      </form>
+    </main>
+    <script src="//code.jquery.com/jquery.min.js"></script>
+    <script src="script.js"></script>
+    <script src='store.js'></script>
+  </body>
+</html>

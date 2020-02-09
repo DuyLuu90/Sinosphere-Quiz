@@ -1,0 +1,41 @@
+*{
+  box-sizing: border-box;
+  margin:0;
+  padding:0;
+}
+body{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.display-questions-scores{
+  display: flex;
+  justify-content: space-evenly;
+}
+span{
+  padding: 10px;
+  color: white;
+  background-color: black;
+}
+fieldset {
+  margin-top: 30px;
+  width: 300px;
+  height: auto;
+}
+
+.question-picture{
+  background-color: rgb(192, 182, 182);
+}
+.js-questions{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.js-submit{
+  display: flex;
+  flex-direction: row-reverse;
+}
+button {
+  cursor: pointer;
+  margin: 15px;
+}

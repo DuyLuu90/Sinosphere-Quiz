@@ -10,8 +10,8 @@
     <header>
       <h1> YOUR QUIZ APP HEADER </h1>
       <div class='display-questions-scores'> 
-        <span> Question: </span>
-        <span> Score: </span>
+        <span class='currentQuestion'> Question:</span> 
+        <span class='currentScore'> Score: </span>
       </div>
     </header>
 
@@ -28,27 +28,7 @@
         </fieldset>
 
         <fieldset class='questions-screen'>
-          <div class='js-questions'>
-            <legend>Question</legend>
-            <img src='' class='question-picture' alt='Question-Picture'>
-          </div>
-          <div class='js-options'>
-            <input type='radio' id='ans-0' value='0'>
-            <label for='ans-0'>Option 1</label>
-            <br>
-            <input type='radio' id='ans-1' value='1'>
-            <label for='ans-1'>Option 2</label>
-            <br>
-            <input type='radio' id='ans-2' value='2'>
-            <label for='ans-2'>Option 3</label>
-            <br>
-            <input type='radio' id='ans-3' value='3'>
-            <label for='ans-3'>Option 4</label>
-            <br>  
-          </div>
-          <div class='js-submit'>
-            <button type='submit'class='submit'> SUBMIT </button>
-          </div>
+          
         </fieldset>
 
         <fieldset class='final-screen'>
@@ -63,8 +43,14 @@
         </fieldset>
       </form>
     </main>
-    <script src="//code.jquery.com/jquery.min.js"></script>
-    <script src="script.js"></script>
-    <script src='store.js'></script>
+
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/cuid/1.3.8/browser-cuid.js'></script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+    <script src="store.js"></script>
+
+    <script src='script.js'></script>
+
   </body>
 </html>

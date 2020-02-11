@@ -7,35 +7,59 @@ body{
   display: flex;
   flex-direction: column;
   align-items: center;
+  background-image: URL("https://c1.wallpaperflare.com/preview/72/255/582/textures-wood.jpg");
+  background-size: cover;
 }
-.display-questions-scores{
+.message {
+  margin: 20px;
+}
+header {
+  background-color: yellow;
+  color: darkslategrey;
+  margin: 15px;
+  padding: 10px;
+}
+.questions-scores{
   display: flex;
   justify-content: space-evenly;
 }
 span{
   padding: 10px;
   color: white;
-  background-color: black;
+  background-color: red;
 }
 fieldset {
-  margin-top: 30px;
-  width: 300px;
+  width: 440px;
   height: auto;
+  color: white;
+  background-color: darkslategray;
+  border-radius: 15px;
 }
 
 .question-picture{
-  background-color: rgb(192, 182, 182);
+  max-width: 400px;
+  height: auto; 
 }
-.js-questions{
+.questions{
   display: flex;
   flex-direction: column;
   align-items: center;
+  font-size: 25px;
+  font-weight: bolder;
+  padding: 20px;
 }
-.js-submit{
+.options {
+  padding-left: 50px;
+  font-size: 20px;
+}
+.submit{
   display: flex;
   flex-direction: row-reverse;
 }
 button {
   cursor: pointer;
-  margin: 15px;
+  padding: 10px;
+  margin: 20px;
+  color: white;
+  background-color: tomato;
 }

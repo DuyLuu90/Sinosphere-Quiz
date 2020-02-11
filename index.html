@@ -8,45 +8,27 @@
   </head>
   <body>
     <header>
-      <h1> YOUR QUIZ APP HEADER </h1>
-      <div class='display-questions-scores'> 
-        <span class='currentQuestion'> Question:</span> 
-        <span class='currentScore'> Score: </span>
+      <h1> *THINKFUL-QUIZ APP* </h1>
+      <div class='questions-scores'> 
       </div>
     </header>
 
-    <main>
-      <form>
-        <fieldset class='start-screen'>
-          <div>
-            <legend>YOUR QUIZ TITTLE:</legend>
-            <p> This quiz is to analyze your basic knowledge of ${text} </p>
-          </div>
-          <div class='js-submit'>
-            <button type='select' class='start'>START</button>
-          </div>
-        </fieldset>
+    <main class='main'>
+      <fieldset class='start'>
+        <div class='message'>
+          <h1>SINOSPHERE:</h1> 
+          <p> The East Asian cultural sphere, or the Sinosphere, consist of countries that were historially influenced by the Chinese culture. This quiz is to analyze your basic knowledge of those countries.</p>
+        </div>
+        <div class='submit'>
+          <button type='select' ID='start'>START</button>
+        </div>
+      </fieldset>
 
-        <fieldset class='questions-screen'>
-          
-        </fieldset>
-
-        <fieldset class='final-screen'>
-          <div>
-            <legend>THANK YOU</legend>
-            <p> You have completed your quiz. Your score is ${this.num}. What would you like to do next?</p>
-          </div>
-          <div class='js-submit'>
-            <button type='select' class='exit'>EXIT</button>
-            <button type='select' class='start-over'>START OVER</button>
-          </div>
-        </fieldset>
-      </form>
     </main>
 
-    <script src='https://cdnjs.cloudflare.com/ajax/libs/cuid/1.3.8/browser-cuid.js'></script>
-
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/cuid/1.3.8/browser-cuid.js'></script>
 
     <script src="store.js"></script>
 

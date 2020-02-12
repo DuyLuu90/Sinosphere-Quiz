@@ -8,8 +8,8 @@ function handleStartClicked(){
 
 function updateQuestionAndScore() {
   const html= `
-  <span class='currentQuestion'> Question: ${user.currentQuestion+1}/${quizBank.length} </span> 
-  <span class='currentScore'> Score: ${user.score}/${quizBank.length} </span> `;
+  <span class='span'> Question: ${user.currentQuestion+1}/${quizBank.length} </span> 
+  <span class='span'> Score: ${user.score}/${quizBank.length} </span> `;
   $('.questions-scores').html(html);
 }
 
@@ -17,8 +17,8 @@ function generateQuestion(item){
   console.log('\nGenerating question');
   return `
     <form id='js-questions' method='post'>
-      <fieldset >
-        <div class='questions'>
+      <fieldset class='questions' >
+        <div class='currentQuestion'>
           <legend>${item.question}</legend>
           <img src='${item.image}' class='question-picture' alt='Question-Picture'>
         </div>
@@ -56,23 +56,17 @@ function renderAQuestion(){
 };
 function createAlertBox (message) {
   return `
-    <fieldset class='alert'>
-      <div class='message'>
-        <p> ${message}</p>
-      </div>
-      <div class='submit'>
-        <button type='select'ID='Next'>NEXT</button>
-      </div>
-    </fieldset>
+    <form ID='js-alert' method='post'>
+      <fieldset class='alert'>
+        <div class='message'>
+          <p class='alertMessage'> ${message}</p>
+        </div>
+        <div class='submit'>
+          <button type='submit'>OK</button>
+        </div>
+      </fieldset>
+    </form>
   `
-}
-function handleNextClicked() {
-  $('main').on('click','#Next', function(event) {
-    $('#js-questions').show();
-    $('.alert').empty();
-    user.currentQuestion === quizBank.length?
-    displayFinalScreen():renderAQuestion();
-  })
 }
 
 function handleAnswerSubmitted(){
@@ -81,37 +75,44 @@ function handleAnswerSubmitted(){
     event.preventDefault();
     $('#js-questions').hide();
     let result=quizBank[user.currentQuestion].answer;
-    //(1) receive the answer 'selected'
+    //this function (1)'receive' the Answer 'submited' by the user, (2)compare it with the 'result', (3) alert the user if his/her ans is correct or not, (4) update the score and the current question.
     //Q: we can't use let/const to assign the property value to a variable
     user.answer= $("input[name='option']:checked").val();
     if (!user.answer) {
-      $('main').append(`${createAlertBox('Please choose an option')}`);
+      $('main').append(`${createAlertBox('Please choose an option!')}`);
+      $('.alertMessage').toggleClass('yellow');
     }
     else if (user.answer===result) {
-      $('main').append(`${createAlertBox('Your answer is correct')}`);
+      $('main').append(`${createAlertBox('Your answer is correct.')}`);
+      $('.alertMessage').toggleClass('green');
       user.score ++;
       user.currentQuestion ++;
     }
     else {
-      $('main').append(`${createAlertBox(`That's wrong.The correct answer is ${result}.`)}`);
+      $('main').append(`${createAlertBox(`That's wrong.The correct answer is '${result}'.`)}`);
+      $('.alertMessage').toggleClass('red');
       user.currentQuestion ++;
     }
-    /*
-    user.currentQuestion === quizBank.length?
-    displayFinalScreen(): renderAQuestion();
-    */
   });
-
-  //this function (1)'receive' the Answer 'cliked' by the user, (2)compare it with the correct Answer, (3) alert the user if his/her ans is correct or not, (4) record the score, then (5) move on to the next question in the quiz bank 
 };
 
-function displayFinalScreen() {
+function handleOKClicked() {
+  $('main').on('submit','#js-alert', function(event) {
+    event.preventDefault();
+    $('#js-questions').show();
+    $('.alert').empty();
+    user.currentQuestion === quizBank.length?
+    renderFinalScreen():renderAQuestion();
+  });
+}
+
+function renderFinalScreen() {
   console.log('\nDisplaying Final Screen');
   let finalHtml= `
     <fieldset class='final-screen'>
       <div class='message'>
         <p>THANK YOU</p>
-        <p> You have completed your quiz. Your score is <span> ${user.score}/${quizBank.length} </span>. What would you like to do next?</p>
+        <p> You have completed your quiz. Your score is <span class='span'> ${user.score}/${quizBank.length} </span>. What would you like to do next?</p>
       </div>
       <div class='submit'>
         <button type='select' ID='exit'>EXIT</button>
@@ -135,13 +136,15 @@ function generateQuizBank(){
 */
 function runQuizApp() {
   handleStartClicked();
-  handleNextClicked();
-  //generateQuestion();// this function needs not to be called when the page loads.
-  //generateQuizBank ();
-  //renderAQuestion();  
   handleAnswerSubmitted();
-  //displayFinalScreen();
+  handleOKClicked();
   restartQuiz();
   exitQuiz();
+  //generateQuestion();// this function needs not to be called when the page loads.
+  //generateOptions();
+  //createAlertBox();
+  //generateQuizBank ();
+  //renderAQuestion();   
+  //renderFinalScreen();
 } 
 $(runQuizApp);

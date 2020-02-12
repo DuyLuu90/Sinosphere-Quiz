@@ -23,10 +23,25 @@ header {
   display: flex;
   justify-content: space-evenly;
 }
-span{
+.span{
   padding: 10px;
   color: white;
   background-color: red;
+}
+.alertMessage {
+  padding: 10px;
+  color: black;
+  font-size: 20px;
+  font-weight: bold;
+}
+.green {
+  background-color: green;
+}
+.yellow {
+  background-color: yellow;
+}
+.red {
+  background-color: red; 
 }
 fieldset {
   width: 440px;
@@ -40,7 +55,7 @@ fieldset {
   max-width: 400px;
   height: auto; 
 }
-.questions{
+.currentQuestion{
   display: flex;
   flex-direction: column;
   align-items: center;

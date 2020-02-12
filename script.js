@@ -25,7 +25,7 @@ function generateQuestion(item){
         <div class='options'>
           
         </div>
-        <div class='submit'>
+        <div class='button'>
           <button type='submit' id='submit'> SUBMIT </button>
         </div> 
       </Fieldset>
@@ -54,15 +54,16 @@ function renderAQuestion(){
   $('.options').html(optionHtml);
   //user.currentQuestion ++;
 };
+
 function createAlertBox (message) {
   return `
-    <form ID='js-alert' method='post'>
+    <form id='js-alert' method='post'>
       <fieldset class='alert'>
         <div class='message'>
           <p class='alertMessage'> ${message}</p>
         </div>
-        <div class='submit'>
-          <button type='submit'>OK</button>
+        <div class='button'>
+          <button type='submit'id='OK'>OK</button>
         </div>
       </fieldset>
     </form>
@@ -97,7 +98,7 @@ function handleAnswerSubmitted(){
 };
 
 function handleOKClicked() {
-  $('main').on('submit','#js-alert', function(event) {
+  $('main').on("click",'#OK',event=>{
     event.preventDefault();
     $('#js-questions').show();
     $('.alert').empty();
@@ -114,7 +115,7 @@ function renderFinalScreen() {
         <p>THANK YOU</p>
         <p> You have completed your quiz. Your score is <span class='span'> ${user.score}/${quizBank.length} </span>. What would you like to do next?</p>
       </div>
-      <div class='submit'>
+      <div class='button'>
         <button type='select' ID='exit'>EXIT</button>
         <button type='select' ID='startOver'>START OVER</button>
       </div>
@@ -130,10 +131,7 @@ function restartQuiz() {
 function exitQuiz() {
   $('main').on('click','#exit', event=>location.reload());
 }
-/*
-function generateQuizBank(){
-  console.log('\nGenerating Quiz-Bank');
-*/
+
 function runQuizApp() {
   handleStartClicked();
   handleAnswerSubmitted();
@@ -143,7 +141,6 @@ function runQuizApp() {
   //generateQuestion();// this function needs not to be called when the page loads.
   //generateOptions();
   //createAlertBox();
-  //generateQuizBank ();
   //renderAQuestion();   
   //renderFinalScreen();
 } 

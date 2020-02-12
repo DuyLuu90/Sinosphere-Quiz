@@ -67,7 +67,7 @@ fieldset {
   padding-left: 50px;
   font-size: 20px;
 }
-.submit{
+.button{
   display: flex;
   flex-direction: row-reverse;
 }

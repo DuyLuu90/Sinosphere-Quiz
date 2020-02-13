@@ -96,6 +96,19 @@ function handleAnswerSubmitted(){
     }
   });
 };
+/*
+function enterKey() {
+  $(document).keypress(event=>{ 
+    let keycode = (event.keyCode ? event.keyCode : event.which); 
+    if(keycode == '13'){ 
+      $('#js-questions').show();
+      $('.alert').empty();
+      user.currentQuestion === quizBank.length?
+      renderFinalScreen():renderAQuestion();
+    } 
+  })
+}
+*/
 
 function handleOKClicked() {
   $('main').on("click",'#OK',event=>{
@@ -138,6 +151,7 @@ function runQuizApp() {
   handleOKClicked();
   restartQuiz();
   exitQuiz();
+  //enterKey();
   //generateQuestion();// this function needs not to be called when the page loads.
   //generateOptions();
   //createAlertBox();

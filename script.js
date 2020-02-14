@@ -36,9 +36,10 @@ function generateOptions(array,item) {
   let optionHtml='';
   for (let i=0; i<array.length;i++) {
       optionHtml += `
-      <input type='radio' name='option' id='${item.id}-${i}' value='${array[i]}'>
-      <label for='${item.id}-${i}'>${array[i]}</label>
-      <br>`
+      <div class='option'>
+        <input type='radio' name='option' id='${item.id}-${i}' value='${array[i]}'>
+        <label for='${item.id}-${i}'>${array[i]}</label>
+      </div>`
   };
   return optionHtml;
 }

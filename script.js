@@ -90,7 +90,7 @@ function handleAnswerSubmitted(){
       user.currentQuestion ++;
     }
     else {
-      $('main').append(`${createAlertBox(`That's wrong.The correct answer is '${result}'.`)}`);
+      $('main').append(`${createAlertBox(`Sorry, the correct answer is '${result}'.`)}`);
       $('.alertMessage').toggleClass('red');
       user.currentQuestion ++;
     }

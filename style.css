@@ -10,19 +10,29 @@ body{
   background-image: URL("https://c1.wallpaperflare.com/preview/72/255/582/textures-wood.jpg");
   background-size: cover;
 }
+.main {
+  text-align: center;
+}
 .message {
   margin: 20px;
 }
 header {
   background-color: yellow;
-  color: darkslategrey;
+  color: black;
   margin: 15px;
-  padding: 10px;
+  padding: 20px;
 }
 .questions-scores{
   display: flex;
   justify-content: space-evenly;
 }
+.openning {
+  width: 540px;
+  height: 360px;
+  background-image: URL('https://66.media.tumblr.com/fb5a0ec2e1b2c68bb15f1c8d107801db/tumblr_pwroagRhJ51wa6dqco1_1280.jpg');
+  background-size: cover;
+}
+
 .span{
   padding: 10px;
   color: white;
@@ -72,6 +82,7 @@ fieldset {
   margin-right: 50px;
   font-size: 20px;
   padding: 5px;
+  text-align: left;
   border-radius: 5px;
   border-width: 5px;
 }

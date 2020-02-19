@@ -1,9 +1,26 @@
 'use strict';// undeclared variables not allowed
 
-function handleStartClicked(){
-  console.log('\nHandling Start-cliked');
+function handleStartClicked() {
+  $('main').on('click','#start',event=> {
+    let html= `
+    <form id='js-header'>
+        <fieldset class='header'>
+          <div class='message'>
+            <h1>SINOSPHERE:</h1> 
+            <p> The East Asian cultural sphere, or the Sinosphere, consist of countries that were historically influenced by the Chinese culture. This quiz is to analyze your basic knowledge of those countries.</p>
+          </div>
+          <div class='button'>
+            <button type='button' id='header'>GOT IT</button>
+          </div>
+        </fieldset>
+      </form> `;
+    $('.main').html(html);
+  })
+} 
+
+function handlegotItClicked(){
   //this function display the question 
-  $('main').on('click','#start',event =>renderAQuestion());
+  $('main').on('click','#header',event =>renderAQuestion());
 };
 
 function updateQuestionAndScore() {
@@ -14,7 +31,6 @@ function updateQuestionAndScore() {
 }
 
 function generateQuestion(item){
-  console.log('\nGenerating question');
   return `
     <form id='js-questions' method='post'>
       <fieldset class='questions' >
@@ -45,7 +61,6 @@ function generateOptions(array,item) {
 }
 
 function renderAQuestion(){
-  console.log('\nRendering a question to the DOM')
   updateQuestionAndScore();
   let question= quizBank[user.currentQuestion];
   let options=question.option; 
@@ -72,7 +87,6 @@ function createAlertBox (message) {
 }
 
 function handleAnswerSubmitted(){
-  console.log('\nHandling Answer-submitted');
   $('main').on('submit','#js-questions',event=>{
     event.preventDefault();
     $('#js-questions').hide();
@@ -122,7 +136,6 @@ function handleOKClicked() {
 }
 
 function renderFinalScreen() {
-  console.log('\nDisplaying Final Screen');
   let finalHtml= `
     <fieldset class='final-screen'>
       <div class='message'>
@@ -148,6 +161,7 @@ function exitQuiz() {
 
 function runQuizApp() {
   handleStartClicked();
+  handlegotItClicked();
   handleAnswerSubmitted();
   handleOKClicked();
   restartQuiz();
